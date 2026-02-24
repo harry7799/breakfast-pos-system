@@ -5,6 +5,7 @@ import sys
 os.environ["DATABASE_URL"] = "sqlite:///./test_breakfast.db"
 os.environ["APP_ENV"] = "test"
 os.environ["SECRET_KEY"] = "test-secret-key"
+os.environ["AUTH_DISABLED"] = "false"
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 from fastapi.testclient import TestClient
@@ -83,11 +84,11 @@ def test_order_auto_pay_deduct_inventory() -> None:
     manager_headers = auth_headers("manager1", "manager1234")
 
     before_ingredients = client.get("/api/inventory/ingredients", headers=manager_headers).json()
-    egg_before = find_item(before_ingredients, "name", "Egg")["current_stock"]
-    bread_before = find_item(before_ingredients, "name", "Bread Slice")["current_stock"]
+    egg_before = find_item(before_ingredients, "name", "雞蛋")["current_stock"]
+    bread_before = find_item(before_ingredients, "name", "吐司片")["current_stock"]
 
     menu_items = client.get("/api/menu/items", headers=staff_headers).json()
-    toast = find_item(menu_items, "name", "Ham Egg Toast")
+    toast = find_item(menu_items, "name", "[TOAST_EGG] 玉米(素)")
 
     response = client.post(
         "/api/orders",
@@ -101,11 +102,11 @@ def test_order_auto_pay_deduct_inventory() -> None:
     assert response.status_code == 201
     created = response.json()
     assert created["payment_status"] == "paid"
-    assert created["total_amount"] == 130
+    assert created["total_amount"] == 110
 
     after_ingredients = client.get("/api/inventory/ingredients", headers=manager_headers).json()
-    egg_after = find_item(after_ingredients, "name", "Egg")["current_stock"]
-    bread_after = find_item(after_ingredients, "name", "Bread Slice")["current_stock"]
+    egg_after = find_item(after_ingredients, "name", "雞蛋")["current_stock"]
+    bread_after = find_item(after_ingredients, "name", "吐司片")["current_stock"]
 
     assert egg_after == egg_before - 2
     assert bread_after == bread_before - 4
@@ -116,7 +117,7 @@ def test_kitchen_can_update_status() -> None:
     kitchen_headers = auth_headers("kitchen1", "kitchen1234")
 
     menu_items = client.get("/api/menu/items", headers=staff_headers).json()
-    milk_tea = find_item(menu_items, "name", "Milk Tea")
+    tea = find_item(menu_items, "name", "有機蔗糖紅茶 (M)")
 
     create_res = client.post(
         "/api/orders",
@@ -124,7 +125,7 @@ def test_kitchen_can_update_status() -> None:
         json={
             "source": "dine_in",
             "auto_pay": False,
-            "items": [{"menu_item_id": milk_tea["id"], "quantity": 1}],
+            "items": [{"menu_item_id": tea["id"], "quantity": 1}],
         },
     )
     assert create_res.status_code == 201
@@ -144,7 +145,7 @@ def test_analytics_overview_with_manager() -> None:
     manager_headers = auth_headers("manager1", "manager1234")
 
     menu_items = client.get("/api/menu/items", headers=staff_headers).json()
-    toast = find_item(menu_items, "name", "Ham Egg Toast")
+    toast = find_item(menu_items, "name", "[TOAST_EGG] 玉米(素)")
 
     order_res = client.post(
         "/api/orders",
@@ -161,8 +162,8 @@ def test_analytics_overview_with_manager() -> None:
     assert analytics_res.status_code == 200
     payload = analytics_res.json()
     assert payload["total_orders"] >= 1
-    assert payload["total_revenue"] >= 65
-    assert any(item["menu_item_name"] == "Ham Egg Toast" for item in payload["top_items"])
+    assert payload["total_revenue"] >= 55
+    assert any(item["menu_item_name"] == "[TOAST_EGG] 玉米(素)" for item in payload["top_items"])
 
 
 def test_insufficient_inventory_blocks_auto_pay_order() -> None:
@@ -170,7 +171,7 @@ def test_insufficient_inventory_blocks_auto_pay_order() -> None:
     manager_headers = auth_headers("manager1", "manager1234")
 
     ingredients = client.get("/api/inventory/ingredients", headers=manager_headers).json()
-    egg = find_item(ingredients, "name", "Egg")
+    egg = find_item(ingredients, "name", "雞蛋")
     set_stock_res = client.put(
         f"/api/inventory/ingredients/{egg['id']}",
         headers=manager_headers,
@@ -179,7 +180,7 @@ def test_insufficient_inventory_blocks_auto_pay_order() -> None:
     assert set_stock_res.status_code == 200
 
     menu_items = client.get("/api/menu/items", headers=staff_headers).json()
-    toast = find_item(menu_items, "name", "Ham Egg Toast")
+    toast = find_item(menu_items, "name", "[TOAST_EGG] 玉米(素)")
 
     order_res = client.post(
         "/api/orders",
@@ -193,7 +194,7 @@ def test_insufficient_inventory_blocks_auto_pay_order() -> None:
     assert order_res.status_code == 409
     payload = order_res.json()
     assert payload["detail"]["message"] == "Insufficient inventory"
-    assert any(row["ingredient_name"] == "Egg" for row in payload["detail"]["shortages"])
+    assert any(row["ingredient_name"] == "雞蛋" for row in payload["detail"]["shortages"])
 
     orders_res = client.get("/api/orders", headers=staff_headers)
     assert orders_res.status_code == 200
@@ -206,10 +207,10 @@ def test_cancelled_order_restores_inventory() -> None:
     manager_headers = auth_headers("manager1", "manager1234")
 
     before_ingredients = client.get("/api/inventory/ingredients", headers=manager_headers).json()
-    egg_before = find_item(before_ingredients, "name", "Egg")["current_stock"]
+    egg_before = find_item(before_ingredients, "name", "雞蛋")["current_stock"]
 
     menu_items = client.get("/api/menu/items", headers=staff_headers).json()
-    toast = find_item(menu_items, "name", "Ham Egg Toast")
+    toast = find_item(menu_items, "name", "[TOAST_EGG] 玉米(素)")
 
     create_res = client.post(
         "/api/orders",
@@ -224,7 +225,7 @@ def test_cancelled_order_restores_inventory() -> None:
     order_id = create_res.json()["id"]
 
     after_pay_ingredients = client.get("/api/inventory/ingredients", headers=manager_headers).json()
-    egg_after_pay = find_item(after_pay_ingredients, "name", "Egg")["current_stock"]
+    egg_after_pay = find_item(after_pay_ingredients, "name", "雞蛋")["current_stock"]
     assert egg_after_pay == egg_before - 2
 
     cancel_res = client.post(
@@ -236,7 +237,7 @@ def test_cancelled_order_restores_inventory() -> None:
     assert cancel_res.json()["status"] == "cancelled"
 
     after_cancel_ingredients = client.get("/api/inventory/ingredients", headers=manager_headers).json()
-    egg_after_cancel = find_item(after_cancel_ingredients, "name", "Egg")["current_stock"]
+    egg_after_cancel = find_item(after_cancel_ingredients, "name", "雞蛋")["current_stock"]
     assert egg_after_cancel == egg_before
 
 
@@ -269,10 +270,10 @@ def test_amend_paid_order_adjusts_inventory_delta() -> None:
     manager_headers = auth_headers("manager1", "manager1234")
 
     ingredients_before = client.get("/api/inventory/ingredients", headers=manager_headers).json()
-    egg_before = find_item(ingredients_before, "name", "Egg")["current_stock"]
+    egg_before = find_item(ingredients_before, "name", "雞蛋")["current_stock"]
 
     menu_items = client.get("/api/menu/items", headers=staff_headers).json()
-    toast = find_item(menu_items, "name", "Ham Egg Toast")
+    toast = find_item(menu_items, "name", "[TOAST_EGG] 玉米(素)")
 
     create_res = client.post(
         "/api/orders",
@@ -295,12 +296,12 @@ def test_amend_paid_order_adjusts_inventory_delta() -> None:
     )
     assert amend_res.status_code == 200
     payload = amend_res.json()
-    assert payload["order"]["total_amount"] == 195
+    assert payload["order"]["total_amount"] == 165
     assert payload["diff"]["quantity_changed"][0]["before_quantity"] == 1
     assert payload["diff"]["quantity_changed"][0]["after_quantity"] == 3
 
     ingredients_after_grow = client.get("/api/inventory/ingredients", headers=manager_headers).json()
-    egg_after_grow = find_item(ingredients_after_grow, "name", "Egg")["current_stock"]
+    egg_after_grow = find_item(ingredients_after_grow, "name", "雞蛋")["current_stock"]
     assert egg_after_grow == egg_before - 3
 
     amend_back_res = client.post(
@@ -312,12 +313,12 @@ def test_amend_paid_order_adjusts_inventory_delta() -> None:
     )
     assert amend_back_res.status_code == 200
     payload_back = amend_back_res.json()
-    assert payload_back["order"]["total_amount"] == 65
+    assert payload_back["order"]["total_amount"] == 55
     assert payload_back["diff"]["quantity_changed"][0]["before_quantity"] == 3
     assert payload_back["diff"]["quantity_changed"][0]["after_quantity"] == 1
 
     ingredients_after_shrink = client.get("/api/inventory/ingredients", headers=manager_headers).json()
-    egg_after_shrink = find_item(ingredients_after_shrink, "name", "Egg")["current_stock"]
+    egg_after_shrink = find_item(ingredients_after_shrink, "name", "雞蛋")["current_stock"]
     assert egg_after_shrink == egg_before - 1
 
 
@@ -327,7 +328,7 @@ def test_kitchen_can_view_low_stock() -> None:
     staff_headers = auth_headers("staff1", "staff1234")
 
     ingredients = client.get("/api/inventory/ingredients", headers=manager_headers).json()
-    egg = find_item(ingredients, "name", "Egg")
+    egg = find_item(ingredients, "name", "雞蛋")
 
     update_res = client.put(
         f"/api/inventory/ingredients/{egg['id']}",
@@ -338,7 +339,7 @@ def test_kitchen_can_view_low_stock() -> None:
 
     kitchen_res = client.get("/api/inventory/low-stock", headers=kitchen_headers)
     assert kitchen_res.status_code == 200
-    assert any(row["ingredient_name"] == "Egg" for row in kitchen_res.json())
+    assert any(row["ingredient_name"] == "雞蛋" for row in kitchen_res.json())
 
     staff_res = client.get("/api/inventory/low-stock", headers=staff_headers)
     assert staff_res.status_code == 403
@@ -349,7 +350,7 @@ def test_manager_can_create_and_update_combo_rule() -> None:
     staff_headers = auth_headers("staff1", "staff1234")
 
     menu_items = client.get("/api/menu/items", headers=staff_headers).json()
-    milk_tea = find_item(menu_items, "name", "Milk Tea")
+    tea = find_item(menu_items, "name", "有機蔗糖紅茶 (M)")
 
     create_res = client.post(
         "/api/menu/combos",
@@ -361,7 +362,7 @@ def test_manager_can_create_and_update_combo_rule() -> None:
             "max_drink_price": 40,
             "drink_choice_count": 1,
             "side_choice_count": 1,
-            "eligible_drink_item_ids": [milk_tea["id"]],
+            "eligible_drink_item_ids": [tea["id"]],
             "side_options": [{"code": "A", "name": "French Fries"}],
             "raw_rule_text": "<=40 drink + choose one side",
             "is_active": True,
@@ -370,7 +371,7 @@ def test_manager_can_create_and_update_combo_rule() -> None:
     assert create_res.status_code == 201
     created = create_res.json()
     assert created["code"] == "SET40"
-    assert created["eligible_drinks"][0]["menu_item_id"] == milk_tea["id"]
+    assert created["eligible_drinks"][0]["menu_item_id"] == tea["id"]
     combo_id = created["id"]
 
     list_res = client.get("/api/menu/combos", headers=staff_headers)
@@ -403,7 +404,7 @@ def test_manager_can_create_and_update_combo_rule() -> None:
 def test_staff_cannot_create_combo_rule() -> None:
     staff_headers = auth_headers("staff1", "staff1234")
     menu_items = client.get("/api/menu/items", headers=staff_headers).json()
-    milk_tea = find_item(menu_items, "name", "Milk Tea")
+    tea = find_item(menu_items, "name", "有機蔗糖紅茶 (M)")
 
     res = client.post(
         "/api/menu/combos",
@@ -414,7 +415,7 @@ def test_staff_cannot_create_combo_rule() -> None:
             "bundle_price": 40,
             "drink_choice_count": 1,
             "side_choice_count": 0,
-            "eligible_drink_item_ids": [milk_tea["id"]],
+            "eligible_drink_item_ids": [tea["id"]],
             "side_options": [],
         },
     )
@@ -426,8 +427,8 @@ def test_combo_order_uses_bundle_price_not_sum_of_items() -> None:
     staff_headers = auth_headers("staff1", "staff1234")
 
     menu_items = client.get("/api/menu/items", headers=staff_headers).json()
-    milk_tea = find_item(menu_items, "name", "Milk Tea")
-    toast = find_item(menu_items, "name", "Ham Egg Toast")
+    tea = find_item(menu_items, "name", "有機蔗糖紅茶 (M)")
+    toast = find_item(menu_items, "name", "[TOAST_EGG] 玉米(素)")
 
     combo_res = client.post(
         "/api/menu/combos",
@@ -439,7 +440,7 @@ def test_combo_order_uses_bundle_price_not_sum_of_items() -> None:
             "max_drink_price": 60,
             "drink_choice_count": 1,
             "side_choice_count": 1,
-            "eligible_drink_item_ids": [milk_tea["id"]],
+            "eligible_drink_item_ids": [tea["id"]],
             "side_options": [{"code": "A", "name": "Any Side"}],
             "is_active": True,
         },
@@ -457,7 +458,7 @@ def test_combo_order_uses_bundle_price_not_sum_of_items() -> None:
             "combos": [
                 {
                     "combo_id": combo_id,
-                    "drink_item_ids": [milk_tea["id"]],
+                    "drink_item_ids": [tea["id"]],
                     "side_item_ids": [toast["id"]],
                 }
             ],
@@ -475,7 +476,7 @@ def test_order_number_collision_retries_and_succeeds() -> None:
 
     staff_headers = auth_headers("staff1", "staff1234")
     menu_items = client.get("/api/menu/items", headers=staff_headers).json()
-    milk_tea = find_item(menu_items, "name", "Milk Tea")
+    tea = find_item(menu_items, "name", "有機蔗糖紅茶 (M)")
 
     sequence = iter(["ODTESTDUP1", "ODTESTDUP1", "ODTESTOK2"])
     original = order_service.generate_order_number
@@ -487,7 +488,7 @@ def test_order_number_collision_retries_and_succeeds() -> None:
             json={
                 "source": "takeout",
                 "auto_pay": False,
-                "items": [{"menu_item_id": milk_tea["id"], "quantity": 1}],
+                "items": [{"menu_item_id": tea["id"], "quantity": 1}],
             },
         )
         assert first_res.status_code == 201
@@ -499,7 +500,7 @@ def test_order_number_collision_retries_and_succeeds() -> None:
             json={
                 "source": "takeout",
                 "auto_pay": False,
-                "items": [{"menu_item_id": milk_tea["id"], "quantity": 1}],
+                "items": [{"menu_item_id": tea["id"], "quantity": 1}],
             },
         )
         assert second_res.status_code == 201
@@ -513,7 +514,7 @@ def test_pickup_board_public_endpoint_returns_active_pickup_orders() -> None:
     kitchen_headers = auth_headers("kitchen1", "kitchen1234")
 
     menu_items = client.get("/api/menu/items", headers=staff_headers).json()
-    milk_tea = find_item(menu_items, "name", "Milk Tea")
+    tea = find_item(menu_items, "name", "有機蔗糖紅茶 (M)")
 
     create_res = client.post(
         "/api/orders",
@@ -521,7 +522,7 @@ def test_pickup_board_public_endpoint_returns_active_pickup_orders() -> None:
         json={
             "source": "takeout",
             "auto_pay": True,
-            "items": [{"menu_item_id": milk_tea["id"], "quantity": 1}],
+            "items": [{"menu_item_id": tea["id"], "quantity": 1}],
         },
     )
     assert create_res.status_code == 201
@@ -553,8 +554,8 @@ def test_shift_open_and_close_summary() -> None:
     assert open_res.json()["status"] == "open"
 
     menu_items = client.get("/api/menu/items", headers=staff_headers).json()
-    toast = find_item(menu_items, "name", "Ham Egg Toast")
-    milk_tea = find_item(menu_items, "name", "Milk Tea")
+    toast = find_item(menu_items, "name", "[TOAST_EGG] 玉米(素)")
+    tea = find_item(menu_items, "name", "有機蔗糖紅茶 (M)")
 
     cash_order = client.post(
         "/api/orders",
@@ -575,7 +576,7 @@ def test_shift_open_and_close_summary() -> None:
             "source": "takeout",
             "auto_pay": True,
             "payment_method": "line_pay",
-            "items": [{"menu_item_id": milk_tea["id"], "quantity": 1}],
+            "items": [{"menu_item_id": tea["id"], "quantity": 1}],
         },
     )
     assert line_pay_order.status_code == 201
@@ -583,14 +584,14 @@ def test_shift_open_and_close_summary() -> None:
     close_res = client.post(
         "/api/shift/close",
         headers=manager_headers,
-        json={"actual_cash": 165},
+        json={"actual_cash": 155},
     )
     assert close_res.status_code == 200
     payload = close_res.json()
     assert payload["status"] == "closed"
     assert payload["paid_order_count"] == 2
-    assert payload["total_revenue"] == 105
-    assert payload["cash_revenue"] == 65
-    assert payload["non_cash_revenue"] == 40
-    assert payload["expected_cash"] == 165
+    assert payload["total_revenue"] == 85
+    assert payload["cash_revenue"] == 55
+    assert payload["non_cash_revenue"] == 30
+    assert payload["expected_cash"] == 155
     assert payload["cash_difference"] == 0
