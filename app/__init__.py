@@ -1,0 +1,2 @@
+"""Breakfast shop system package."""
+

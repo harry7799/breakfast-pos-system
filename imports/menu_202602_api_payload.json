@@ -1,0 +1,479 @@
+{
+  "menu_items": [
+    {
+      "name": "[PASTA] 松子粒(素)",
+      "price": 125.0,
+      "is_active": true
+    },
+    {
+      "name": "[PASTA] 菇菇(素)",
+      "price": 145.0,
+      "is_active": true
+    },
+    {
+      "name": "[PASTA] 100%黑豬肉",
+      "price": 145.0,
+      "is_active": true
+    },
+    {
+      "name": "[PASTA] 100%菲瑞牛",
+      "price": 145.0,
+      "is_active": true
+    },
+    {
+      "name": "[PASTA] 花蛤",
+      "price": 150.0,
+      "is_active": true
+    },
+    {
+      "name": "[PASTA] 100%炸雞條",
+      "price": 150.0,
+      "is_active": true
+    },
+    {
+      "name": "[PASTA] 100%醬燒雞腿",
+      "price": 160.0,
+      "is_active": true
+    },
+    {
+      "name": "[PASTA] 100%舒肥雞胸",
+      "price": 160.0,
+      "is_active": true
+    },
+    {
+      "name": "[RICE_STEW] 黑豬醬",
+      "price": 90.0,
+      "is_active": true
+    },
+    {
+      "name": "[RICE_STEW] 菇菇(蛋素)",
+      "price": 90.0,
+      "is_active": true
+    },
+    {
+      "name": "[RICE_SAUCE] 杏鮑菇菇(素)",
+      "price": 90.0,
+      "is_active": true
+    },
+    {
+      "name": "[RICE_SAUCE] 100%梅花豬",
+      "price": 90.0,
+      "is_active": true
+    },
+    {
+      "name": "[RICE_SAUCE] 100%炸雞條",
+      "price": 95.0,
+      "is_active": true
+    },
+    {
+      "name": "[RICE_SAUCE] 100%菲瑞牛飯",
+      "price": 105.0,
+      "is_active": true
+    },
+    {
+      "name": "[RICE_SAUCE] 100%醬燒雞腿",
+      "price": 135.0,
+      "is_active": true
+    },
+    {
+      "name": "[RICE_SAUCE] 100%舒肥雞胸",
+      "price": 150.0,
+      "is_active": true
+    },
+    {
+      "name": "[RICE_DON] 洋蔥醬燒豬",
+      "price": 115.0,
+      "is_active": true
+    },
+    {
+      "name": "[RICE_DON] 洋蔥醬燒牛肋條",
+      "price": 135.0,
+      "is_active": true
+    },
+    {
+      "name": "[UDON] 100%黑胡椒",
+      "price": 90.0,
+      "is_active": true
+    },
+    {
+      "name": "[UDON] 杏鮑菇菇(素)",
+      "price": 100.0,
+      "is_active": true
+    },
+    {
+      "name": "[UDON] 100%黑豬肉",
+      "price": 100.0,
+      "is_active": true
+    },
+    {
+      "name": "[UDON] 黑豬肉黑胡椒",
+      "price": 110.0,
+      "is_active": true
+    },
+    {
+      "name": "[UDON] 杏鮑菇黑胡椒醬",
+      "price": 110.0,
+      "is_active": true
+    },
+    {
+      "name": "[WRAP] 原味(素)",
+      "price": 50.0,
+      "is_active": true
+    },
+    {
+      "name": "[WRAP] 玉米(素)",
+      "price": 60.0,
+      "is_active": true
+    },
+    {
+      "name": "[WRAP] 薯餅(素)",
+      "price": 70.0,
+      "is_active": true
+    },
+    {
+      "name": "[WRAP] 杏鮑菇(素)",
+      "price": 75.0,
+      "is_active": true
+    },
+    {
+      "name": "[WRAP] 梅花豬",
+      "price": 75.0,
+      "is_active": true
+    },
+    {
+      "name": "[WRAP] 菲瑞牛",
+      "price": 80.0,
+      "is_active": true
+    },
+    {
+      "name": "[WRAP] 鮪魚玉米大板燒",
+      "price": 80.0,
+      "is_active": true
+    },
+    {
+      "name": "[TOAST_EGG] 玉米(素)",
+      "price": 55.0,
+      "is_active": true
+    },
+    {
+      "name": "[TOAST_EGG] 薯餅(素)",
+      "price": 65.0,
+      "is_active": true
+    },
+    {
+      "name": "[TOAST_EGG] 鮪魚玉米",
+      "price": 70.0,
+      "is_active": true
+    },
+    {
+      "name": "[TOAST_EGG] 杏鮑菇(素)",
+      "price": 75.0,
+      "is_active": true
+    },
+    {
+      "name": "[TOAST_EGG] 梅花豬",
+      "price": 75.0,
+      "is_active": true
+    },
+    {
+      "name": "[TOAST_EGG] 菲瑞牛",
+      "price": 80.0,
+      "is_active": true
+    },
+    {
+      "name": "[TOAST_EGG] 炸雞條",
+      "price": 85.0,
+      "is_active": true
+    },
+    {
+      "name": "[TOAST_EGG] 舒肥雞胸",
+      "price": 110.0,
+      "is_active": true
+    },
+    {
+      "name": "[TURNIP] 蘿蔔糕X2+煎蛋",
+      "price": 50.0,
+      "is_active": true
+    },
+    {
+      "name": "[TURNIP] 梅花豬蘿蔔糕(蛋)",
+      "price": 85.0,
+      "is_active": true
+    },
+    {
+      "name": "[TURNIP] 菲瑞牛蘿蔔糕(蛋)",
+      "price": 90.0,
+      "is_active": true
+    },
+    {
+      "name": "[TURNIP] 醬燒雞腿蘿蔔糕(蛋)",
+      "price": 115.0,
+      "is_active": true
+    },
+    {
+      "name": "[TURNIP] 舒肥雞胸蘿蔔糕(蛋)",
+      "price": 120.0,
+      "is_active": true
+    },
+    {
+      "name": "[SALAD] 菲瑞牛(蛋)",
+      "price": 160.0,
+      "is_active": true
+    },
+    {
+      "name": "[SALAD] 醬燒雞腿(蛋)",
+      "price": 165.0,
+      "is_active": true
+    },
+    {
+      "name": "[SALAD] 舒肥雞胸(蛋)",
+      "price": 170.0,
+      "is_active": true
+    },
+    {
+      "name": "[JAM_TOAST] 吉比花生醬(蛋奶素)",
+      "price": 45.0,
+      "is_active": true
+    },
+    {
+      "name": "[JAM_TOAST] 綜合堅果醬(蛋奶素)",
+      "price": 50.0,
+      "is_active": true
+    },
+    {
+      "name": "[SNACK] 荷包蛋",
+      "price": 15.0,
+      "is_active": true
+    },
+    {
+      "name": "[SNACK] 薯餅一片(素)",
+      "price": 25.0,
+      "is_active": true
+    },
+    {
+      "name": "[SNACK] 港式蘿蔔糕(葷)",
+      "price": 45.0,
+      "is_active": true
+    },
+    {
+      "name": "[SNACK] 地瓜(素)",
+      "price": 45.0,
+      "is_active": true
+    },
+    {
+      "name": "[SNACK] 有機高麗菜沙拉",
+      "price": 50.0,
+      "is_active": true
+    },
+    {
+      "name": "[SNACK] 花蛤湯",
+      "price": 50.0,
+      "is_active": true
+    },
+    {
+      "name": "[SNACK] 脆薯條",
+      "price": 50.0,
+      "is_active": true
+    },
+    {
+      "name": "[SNACK] 100%炸雞條",
+      "price": 60.0,
+      "is_active": true
+    },
+    {
+      "name": "有機蔗糖紅茶 (M)",
+      "price": 30.0,
+      "is_active": true
+    },
+    {
+      "name": "有機蔗糖紅茶 (L)",
+      "price": 35.0,
+      "is_active": true
+    },
+    {
+      "name": "三種成份奶茶 (M)",
+      "price": 50.0,
+      "is_active": true
+    },
+    {
+      "name": "三種成份奶茶 (L)",
+      "price": 60.0,
+      "is_active": true
+    },
+    {
+      "name": "豆漿(非基改黃豆) (M)",
+      "price": 30.0,
+      "is_active": true
+    },
+    {
+      "name": "豆漿紅茶(糖) (M)",
+      "price": 30.0,
+      "is_active": true
+    },
+    {
+      "name": "原味冬瓜飲 (L)",
+      "price": 35.0,
+      "is_active": true
+    },
+    {
+      "name": "冬瓜鳳梨果汁 (L)",
+      "price": 55.0,
+      "is_active": true
+    },
+    {
+      "name": "冬瓜百香果果汁 (L)",
+      "price": 55.0,
+      "is_active": true
+    },
+    {
+      "name": "冬瓜檸檬果汁 (L)",
+      "price": 55.0,
+      "is_active": true
+    },
+    {
+      "name": "三種成份果汁(鳳梨) (L)",
+      "price": 55.0,
+      "is_active": true
+    },
+    {
+      "name": "三種成份果汁(百香果) (L)",
+      "price": 55.0,
+      "is_active": true
+    },
+    {
+      "name": "三種成份果汁(檸檬) (L)",
+      "price": 55.0,
+      "is_active": true
+    },
+    {
+      "name": "有機美式咖啡 (M)",
+      "price": 60.0,
+      "is_active": true
+    },
+    {
+      "name": "有機美式咖啡 (L)",
+      "price": 75.0,
+      "is_active": true
+    },
+    {
+      "name": "有機拿鐵(100%奶粉) (M)",
+      "price": 70.0,
+      "is_active": true
+    },
+    {
+      "name": "有機拿鐵(100%奶粉) (L)",
+      "price": 85.0,
+      "is_active": true
+    },
+    {
+      "name": "100%牛奶 (M)",
+      "price": 50.0,
+      "is_active": true
+    },
+    {
+      "name": "生機洛神乾果粒 (M)",
+      "price": 50.0,
+      "is_active": true
+    }
+  ],
+  "combo_rules": [
+    {
+      "code": "SET60",
+      "name": "60元套餐",
+      "bundle_price": 60,
+      "raw_rule_text": "35元以下飲品+A-G 選一種.",
+      "drink_rule": {
+        "max_price": 35,
+        "eligible_drinks": [
+          "有機蔗糖紅茶 (M)",
+          "有機蔗糖紅茶 (L)",
+          "豆漿(非基改黃豆) (M)",
+          "豆漿紅茶(糖) (M)",
+          "原味冬瓜飲 (L)"
+        ]
+      },
+      "side_rule": {
+        "choice_count": 1,
+        "options": [
+          {
+            "code": "A",
+            "name": "100%炸雞條"
+          },
+          {
+            "code": "B",
+            "name": "脆薯"
+          },
+          {
+            "code": "C",
+            "name": "有機蔬菜番茄沙拉"
+          },
+          {
+            "code": "D",
+            "name": "有機蔬菜青檸沙拉"
+          },
+          {
+            "code": "E",
+            "name": "地瓜"
+          },
+          {
+            "code": "F",
+            "name": "花蛤湯"
+          },
+          {
+            "code": "G",
+            "name": "薯餅*2片"
+          }
+        ]
+      }
+    },
+    {
+      "code": "SET95",
+      "name": "95元套餐",
+      "bundle_price": 95,
+      "raw_rule_text": "35元以下飲品+A-G 選二種.",
+      "drink_rule": {
+        "max_price": 35,
+        "eligible_drinks": [
+          "有機蔗糖紅茶 (M)",
+          "有機蔗糖紅茶 (L)",
+          "豆漿(非基改黃豆) (M)",
+          "豆漿紅茶(糖) (M)",
+          "原味冬瓜飲 (L)"
+        ]
+      },
+      "side_rule": {
+        "choice_count": 2,
+        "options": [
+          {
+            "code": "A",
+            "name": "100%炸雞條"
+          },
+          {
+            "code": "B",
+            "name": "脆薯"
+          },
+          {
+            "code": "C",
+            "name": "有機蔬菜番茄沙拉"
+          },
+          {
+            "code": "D",
+            "name": "有機蔬菜青檸沙拉"
+          },
+          {
+            "code": "E",
+            "name": "地瓜"
+          },
+          {
+            "code": "F",
+            "name": "花蛤湯"
+          },
+          {
+            "code": "G",
+            "name": "薯餅*2片"
+          }
+        ]
+      }
+    }
+  ]
+}

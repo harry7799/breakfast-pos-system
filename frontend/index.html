@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="description" content="早餐店智慧系統：整合 POS、KDS、庫存管理與營運分析。" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+  <title>早餐店智慧系統 - 青青草原廚房</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Noto+Sans+TC:wght@500;600;700;800&display=swap");
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Noto Sans TC", "Inter", sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      height: 100%;
+      max-height: 800px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 32px 40px;
+      background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+      border-bottom: 2px solid #10B981;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #1E293B;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .header p {
+      font-size: 16px;
+      color: #64748B;
+      font-weight: 500;
+    }
+
+    .grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 24px;
+      padding: 32px;
+      overflow: hidden;
+    }
+
+    .card {
+      position: relative;
+      background: white;
+      border: 3px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 32px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--color) 0%, var(--color-light) 100%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 300ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      border-color: var(--color);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-icon {
+      font-size: 64px;
+      line-height: 1;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    }
+
+    .card-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #1E293B;
+    }
+
+    .card-desc {
+      font-size: 15px;
+      color: #64748B;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .card-pos {
+      --color: #10B981;
+      --color-light: #34D399;
+      background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%);
+    }
+
+    .card-kds {
+      --color: #F59E0B;
+      --color-light: #FBBF24;
+      background: linear-gradient(135deg, #FFFBEB 0%, #FFFFFF 100%);
+    }
+
+    .card-admin {
+      --color: #3B82F6;
+      --color-light: #60A5FA;
+      background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 100%);
+    }
+
+    .card-pickup {
+      --color: #06B6D4;
+      --color-light: #22D3EE;
+      background: linear-gradient(135deg, #ECFEFF 0%, #FFFFFF 100%);
+    }
+
+    .settings-btn {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      border: none;
+      border-radius: 50%;
+      font-size: 32px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+      transition: all 300ms ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .settings-btn:hover {
+      transform: scale(1.1) rotate(90deg);
+      box-shadow: 0 12px 32px rgba(245, 158, 11, 0.6);
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 16px;
+        padding: 20px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .card-icon {
+        font-size: 48px;
+      }
+
+      .card-title {
+        font-size: 22px;
+      }
+
+      .settings-btn {
+        width: 56px;
+        height: 56px;
+        font-size: 28px;
+        bottom: 24px;
+        right: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>🍳 青青草原廚房</h1>
+      <p>點餐到出餐，一頁打通 · 即時同步 · 庫存追蹤 · 營運報表</p>
+    </header>
+
+    <main class="grid">
+      <a href="/pos" class="card card-pos">
+        <div>
+          <div class="card-icon">🛒</div>
+          <h2 class="card-title">前台 POS</h2>
+          <p class="card-desc">點餐結帳系統<br>快速點餐、掛單、復單</p>
+        </div>
+      </a>
+
+      <a href="/kds" class="card card-kds">
+        <div>
+          <div class="card-icon">🍳</div>
+          <h2 class="card-title">廚房 KDS</h2>
+          <p class="card-desc">廚房出單看板<br>三欄式工作流程</p>
+        </div>
+      </a>
+
+      <a href="/admin" class="card card-admin">
+        <div>
+          <div class="card-icon">📊</div>
+          <h2 class="card-title">後台管理</h2>
+          <p class="card-desc">庫存與報表<br>營運數據分析</p>
+        </div>
+      </a>
+
+      <a href="/pickup" class="card card-pickup">
+        <div>
+          <div class="card-icon">📢</div>
+          <h2 class="card-title">取餐叫號</h2>
+          <p class="card-desc">取餐看板<br>即時叫號顯示</p>
+        </div>
+      </a>
+    </main>
+  </div>
+
+  <a href="/docs" class="settings-btn" title="API 文件">⚙️</a>
+</body>
+</html>

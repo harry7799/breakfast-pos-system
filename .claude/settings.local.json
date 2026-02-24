@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker stop breakfast-system)",
+      "Bash(docker rm breakfast-system)",
+      "Bash(docker build -t breakfast-system .)",
+      "Bash(docker run -d --name breakfast-system -p 8001:8000 breakfast-system)",
+      "Bash(curl -s http://localhost:8001/pos)",
+      "Bash(docker build --no-cache -t breakfast-system .)"
+    ]
+  }
+}

@@ -1,0 +1,1052 @@
+{
+  "source_file": "青青草原廚房_點菜單_202602.xlsx",
+  "source_sheets": [
+    "飲品單",
+    "點菜單"
+  ],
+  "menu_version": "202602",
+  "menu_items": [
+    {
+      "raw_name": "有機蔗糖紅茶 (M)",
+      "price": 30,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A4/C4",
+      "import_name": "有機蔗糖紅茶 (M)"
+    },
+    {
+      "raw_name": "有機蔗糖紅茶 (L)",
+      "price": 35,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A4/F4",
+      "import_name": "有機蔗糖紅茶 (L)"
+    },
+    {
+      "raw_name": "三種成份奶茶 (M)",
+      "price": 50,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A5/C5",
+      "import_name": "三種成份奶茶 (M)"
+    },
+    {
+      "raw_name": "三種成份奶茶 (L)",
+      "price": 60,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A5/F5",
+      "import_name": "三種成份奶茶 (L)"
+    },
+    {
+      "raw_name": "豆漿(非基改黃豆) (M)",
+      "price": 30,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A7/F7",
+      "import_name": "豆漿(非基改黃豆) (M)"
+    },
+    {
+      "raw_name": "豆漿紅茶(糖) (M)",
+      "price": 30,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A8/F8",
+      "import_name": "豆漿紅茶(糖) (M)"
+    },
+    {
+      "raw_name": "原味冬瓜飲 (L)",
+      "price": 35,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A11/F11",
+      "import_name": "原味冬瓜飲 (L)"
+    },
+    {
+      "raw_name": "冬瓜鳳梨果汁 (L)",
+      "price": 55,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A12/F12",
+      "import_name": "冬瓜鳳梨果汁 (L)"
+    },
+    {
+      "raw_name": "冬瓜百香果果汁 (L)",
+      "price": 55,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A13/F13",
+      "import_name": "冬瓜百香果果汁 (L)"
+    },
+    {
+      "raw_name": "冬瓜檸檬果汁 (L)",
+      "price": 55,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A14/F14",
+      "import_name": "冬瓜檸檬果汁 (L)"
+    },
+    {
+      "raw_name": "有機美式咖啡 (M)",
+      "price": 60,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A17/D17",
+      "import_name": "有機美式咖啡 (M)"
+    },
+    {
+      "raw_name": "有機美式咖啡 (L)",
+      "price": 75,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A17/G17",
+      "import_name": "有機美式咖啡 (L)"
+    },
+    {
+      "raw_name": "有機拿鐵(100%奶粉) (M)",
+      "price": 70,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A18/D18",
+      "import_name": "有機拿鐵(100%奶粉) (M)"
+    },
+    {
+      "raw_name": "有機拿鐵(100%奶粉) (L)",
+      "price": 85,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A18/G18",
+      "import_name": "有機拿鐵(100%奶粉) (L)"
+    },
+    {
+      "raw_name": "生機洛神乾果粒(含仙楂無花果) (M)",
+      "price": 50,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A20/G20",
+      "import_name": "生機洛神乾果粒(含仙楂無花果) (M)"
+    },
+    {
+      "raw_name": "100%奶粉 (M)",
+      "price": 50,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A21/G21",
+      "import_name": "100%奶粉 (M)"
+    },
+    {
+      "raw_name": "鳳梨 (L)",
+      "price": 55,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A24/G24",
+      "import_name": "鳳梨 (L)"
+    },
+    {
+      "raw_name": "百香果 (L)",
+      "price": 55,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A25/G25",
+      "import_name": "百香果 (L)"
+    },
+    {
+      "raw_name": "檸檬 (L)",
+      "price": 55,
+      "group_code": "DRINK",
+      "source_ref": "飲品單!A26/G26",
+      "import_name": "檸檬 (L)"
+    },
+    {
+      "raw_name": "松子粒(素)",
+      "price": 125,
+      "group_code": "PASTA_RICE",
+      "source_ref": "點菜單!A8/E8",
+      "import_name": "松子粒(素)"
+    },
+    {
+      "raw_name": "菇菇(素)",
+      "price": 145,
+      "group_code": "PASTA_RICE",
+      "source_ref": "點菜單!A9/E9",
+      "import_name": "菇菇(素)"
+    },
+    {
+      "raw_name": "100%黑豬肉",
+      "price": 145,
+      "group_code": "PASTA_RICE",
+      "source_ref": "點菜單!A10/E10",
+      "import_name": "[PASTA_RICE] 100%黑豬肉"
+    },
+    {
+      "raw_name": "100%菲瑞牛",
+      "price": 145,
+      "group_code": "PASTA_RICE",
+      "source_ref": "點菜單!A11/E11",
+      "import_name": "100%菲瑞牛"
+    },
+    {
+      "raw_name": "花蛤",
+      "price": 150,
+      "group_code": "PASTA_RICE",
+      "source_ref": "點菜單!A12/E12",
+      "import_name": "花蛤"
+    },
+    {
+      "raw_name": "100%炸雞條",
+      "price": 150,
+      "group_code": "PASTA_RICE",
+      "source_ref": "點菜單!A13/E13",
+      "import_name": "[PASTA_RICE] 100%炸雞條"
+    },
+    {
+      "raw_name": "100%醬燒雞腿",
+      "price": 160,
+      "group_code": "PASTA_RICE",
+      "source_ref": "點菜單!A14/E14",
+      "import_name": "100%醬燒雞腿"
+    },
+    {
+      "raw_name": "100%舒肥雞胸",
+      "price": 160,
+      "group_code": "PASTA_RICE",
+      "source_ref": "點菜單!A15/E15",
+      "import_name": "100%舒肥雞胸"
+    },
+    {
+      "raw_name": "燴飯 黑豬醬",
+      "price": 90,
+      "group_code": "RICE_SAUCE_DON",
+      "source_ref": "點菜單!A20B20/F20",
+      "import_name": "燴飯 黑豬醬"
+    },
+    {
+      "raw_name": "燴飯 菇菇(蛋素)",
+      "price": 90,
+      "group_code": "RICE_SAUCE_DON",
+      "source_ref": "點菜單!A21B21/F21",
+      "import_name": "燴飯 菇菇(蛋素)"
+    },
+    {
+      "raw_name": "醬汁 杏鮑菇菇(素)",
+      "price": 90,
+      "group_code": "RICE_SAUCE_DON",
+      "source_ref": "點菜單!A22B22/F22",
+      "import_name": "醬汁 杏鮑菇菇(素)"
+    },
+    {
+      "raw_name": "醬汁 100%梅花豬",
+      "price": 90,
+      "group_code": "RICE_SAUCE_DON",
+      "source_ref": "點菜單!A23B23/F23",
+      "import_name": "醬汁 100%梅花豬"
+    },
+    {
+      "raw_name": "醬汁 100%炸雞條",
+      "price": 95,
+      "group_code": "RICE_SAUCE_DON",
+      "source_ref": "點菜單!A24B24/F24",
+      "import_name": "醬汁 100%炸雞條"
+    },
+    {
+      "raw_name": "醬汁 100%菲瑞牛飯",
+      "price": 105,
+      "group_code": "RICE_SAUCE_DON",
+      "source_ref": "點菜單!A25B25/F25",
+      "import_name": "醬汁 100%菲瑞牛飯"
+    },
+    {
+      "raw_name": "醬汁 100%醬燒雞腿",
+      "price": 135,
+      "group_code": "RICE_SAUCE_DON",
+      "source_ref": "點菜單!A26B26/F26",
+      "import_name": "醬汁 100%醬燒雞腿"
+    },
+    {
+      "raw_name": "醬汁 100%舒肥雞胸",
+      "price": 150,
+      "group_code": "RICE_SAUCE_DON",
+      "source_ref": "點菜單!A27B27/F27",
+      "import_name": "醬汁 100%舒肥雞胸"
+    },
+    {
+      "raw_name": "丼飯 洋蔥醬燒豬",
+      "price": 115,
+      "group_code": "RICE_SAUCE_DON",
+      "source_ref": "點菜單!A28B28/F28",
+      "import_name": "丼飯 洋蔥醬燒豬"
+    },
+    {
+      "raw_name": "丼飯 洋蔥醬燒牛肋條",
+      "price": 135,
+      "group_code": "RICE_SAUCE_DON",
+      "source_ref": "點菜單!A29B29/F29",
+      "import_name": "丼飯 洋蔥醬燒牛肋條"
+    },
+    {
+      "raw_name": "菲瑞牛(蛋)",
+      "price": 160,
+      "group_code": "SALAD",
+      "source_ref": "點菜單!A33/F33",
+      "import_name": "菲瑞牛(蛋)"
+    },
+    {
+      "raw_name": "醬燒雞腿(蛋)",
+      "price": 165,
+      "group_code": "SALAD",
+      "source_ref": "點菜單!A34/F34",
+      "import_name": "醬燒雞腿(蛋)"
+    },
+    {
+      "raw_name": "舒肥雞胸(蛋)",
+      "price": 170,
+      "group_code": "SALAD",
+      "source_ref": "點菜單!A35/F35",
+      "import_name": "舒肥雞胸(蛋)"
+    },
+    {
+      "raw_name": "吉比花生醬(蛋奶素)",
+      "price": 45,
+      "group_code": "JAM_TOAST",
+      "source_ref": "點菜單!A39/E39",
+      "import_name": "吉比花生醬(蛋奶素)"
+    },
+    {
+      "raw_name": "綜合堅果醬(蛋奶素)",
+      "price": 50,
+      "group_code": "JAM_TOAST",
+      "source_ref": "點菜單!A40/E40",
+      "import_name": "綜合堅果醬(蛋奶素)"
+    },
+    {
+      "raw_name": "原味(素)",
+      "price": 50,
+      "group_code": "WRAP",
+      "source_ref": "點菜單!A45/C45",
+      "import_name": "原味(素)"
+    },
+    {
+      "raw_name": "玉米(素)",
+      "price": 60,
+      "group_code": "WRAP",
+      "source_ref": "點菜單!A46/C46",
+      "import_name": "[WRAP] 玉米(素)"
+    },
+    {
+      "raw_name": "薯餅(素)",
+      "price": 70,
+      "group_code": "WRAP",
+      "source_ref": "點菜單!A47/C47",
+      "import_name": "[WRAP] 薯餅(素)"
+    },
+    {
+      "raw_name": "杏鮑菇(素)",
+      "price": 75,
+      "group_code": "WRAP",
+      "source_ref": "點菜單!A48/C48",
+      "import_name": "[WRAP] 杏鮑菇(素)"
+    },
+    {
+      "raw_name": "梅花豬",
+      "price": 75,
+      "group_code": "WRAP",
+      "source_ref": "點菜單!A49/C49",
+      "import_name": "[WRAP] 梅花豬"
+    },
+    {
+      "raw_name": "菲瑞牛",
+      "price": 80,
+      "group_code": "WRAP",
+      "source_ref": "點菜單!A50/C50",
+      "import_name": "[WRAP] 菲瑞牛"
+    },
+    {
+      "raw_name": "鮪魚玉米大板燒",
+      "price": 80,
+      "group_code": "WRAP",
+      "source_ref": "點菜單!A51/C51",
+      "import_name": "鮪魚玉米大板燒"
+    },
+    {
+      "raw_name": "玉米(素)",
+      "price": 55,
+      "group_code": "TOAST_EGG",
+      "source_ref": "點菜單!A56/D56",
+      "import_name": "[TOAST_EGG] 玉米(素)"
+    },
+    {
+      "raw_name": "薯餅(素)",
+      "price": 65,
+      "group_code": "TOAST_EGG",
+      "source_ref": "點菜單!A57/D57",
+      "import_name": "[TOAST_EGG] 薯餅(素)"
+    },
+    {
+      "raw_name": "鮪魚玉米",
+      "price": 70,
+      "group_code": "TOAST_EGG",
+      "source_ref": "點菜單!A58/D58",
+      "import_name": "鮪魚玉米"
+    },
+    {
+      "raw_name": "杏鮑菇(素)",
+      "price": 75,
+      "group_code": "TOAST_EGG",
+      "source_ref": "點菜單!A59/D59",
+      "import_name": "[TOAST_EGG] 杏鮑菇(素)"
+    },
+    {
+      "raw_name": "梅花豬",
+      "price": 75,
+      "group_code": "TOAST_EGG",
+      "source_ref": "點菜單!A60/D60",
+      "import_name": "[TOAST_EGG] 梅花豬"
+    },
+    {
+      "raw_name": "菲瑞牛",
+      "price": 80,
+      "group_code": "TOAST_EGG",
+      "source_ref": "點菜單!A61/D61",
+      "import_name": "[TOAST_EGG] 菲瑞牛"
+    },
+    {
+      "raw_name": "炸雞條",
+      "price": 85,
+      "group_code": "TOAST_EGG",
+      "source_ref": "點菜單!A62/D62",
+      "import_name": "炸雞條"
+    },
+    {
+      "raw_name": "舒肥雞胸",
+      "price": 110,
+      "group_code": "TOAST_EGG",
+      "source_ref": "點菜單!A63/D63",
+      "import_name": "舒肥雞胸"
+    },
+    {
+      "raw_name": "荷包蛋",
+      "price": 15,
+      "group_code": "SNACK",
+      "source_ref": "點菜單!A68/D68",
+      "import_name": "荷包蛋"
+    },
+    {
+      "raw_name": "薯餅一片(素)",
+      "price": 25,
+      "group_code": "SNACK",
+      "source_ref": "點菜單!A69/D69",
+      "import_name": "薯餅一片(素)"
+    },
+    {
+      "raw_name": "地瓜(素)",
+      "price": 45,
+      "group_code": "SNACK",
+      "source_ref": "點菜單!A70/D70",
+      "import_name": "地瓜(素)"
+    },
+    {
+      "raw_name": "有機高麗菜沙拉",
+      "price": 50,
+      "group_code": "SNACK",
+      "source_ref": "點菜單!A71/D71",
+      "import_name": "有機高麗菜沙拉"
+    },
+    {
+      "raw_name": "港式蘿蔔糕(葷)",
+      "price": 45,
+      "group_code": "SNACK",
+      "source_ref": "點菜單!A72/D72",
+      "import_name": "港式蘿蔔糕(葷)"
+    },
+    {
+      "raw_name": "花蛤湯",
+      "price": 50,
+      "group_code": "SNACK",
+      "source_ref": "點菜單!A73/D73",
+      "import_name": "花蛤湯"
+    },
+    {
+      "raw_name": "脆薯條",
+      "price": 50,
+      "group_code": "SNACK",
+      "source_ref": "點菜單!A74/D74",
+      "import_name": "脆薯條"
+    },
+    {
+      "raw_name": "100%炸雞條",
+      "price": 60,
+      "group_code": "SNACK",
+      "source_ref": "點菜單!A75/D75",
+      "import_name": "[SNACK] 100%炸雞條"
+    },
+    {
+      "raw_name": "100%黑胡椒",
+      "price": 90,
+      "group_code": "UDON",
+      "source_ref": "點菜單!A80/D80",
+      "import_name": "100%黑胡椒"
+    },
+    {
+      "raw_name": "杏鮑菇菇(素)",
+      "price": 100,
+      "group_code": "UDON",
+      "source_ref": "點菜單!A81/D81",
+      "import_name": "杏鮑菇菇(素)"
+    },
+    {
+      "raw_name": "100%黑豬肉",
+      "price": 100,
+      "group_code": "UDON",
+      "source_ref": "點菜單!A82/D82",
+      "import_name": "[UDON] 100%黑豬肉"
+    },
+    {
+      "raw_name": "黑豬肉黑胡椒",
+      "price": 110,
+      "group_code": "UDON",
+      "source_ref": "點菜單!A83/D83",
+      "import_name": "黑豬肉黑胡椒"
+    },
+    {
+      "raw_name": "杏鮑菇黑胡椒醬",
+      "price": 110,
+      "group_code": "UDON",
+      "source_ref": "點菜單!A84/D84",
+      "import_name": "杏鮑菇黑胡椒醬"
+    },
+    {
+      "raw_name": "蘿蔔糕X2+煎蛋",
+      "price": 50,
+      "group_code": "TURNIP_CAKE",
+      "source_ref": "點菜單!A88/D88",
+      "import_name": "蘿蔔糕X2+煎蛋"
+    },
+    {
+      "raw_name": "梅花豬蘿蔔糕(蛋)",
+      "price": 85,
+      "group_code": "TURNIP_CAKE",
+      "source_ref": "點菜單!A89/D89",
+      "import_name": "梅花豬蘿蔔糕(蛋)"
+    },
+    {
+      "raw_name": "菲瑞牛蘿蔔糕(蛋)",
+      "price": 90,
+      "group_code": "TURNIP_CAKE",
+      "source_ref": "點菜單!A90/D90",
+      "import_name": "菲瑞牛蘿蔔糕(蛋)"
+    },
+    {
+      "raw_name": "醬燒雞腿蘿蔔糕(蛋)",
+      "price": 115,
+      "group_code": "TURNIP_CAKE",
+      "source_ref": "點菜單!A91/D91",
+      "import_name": "醬燒雞腿蘿蔔糕(蛋)"
+    },
+    {
+      "raw_name": "舒肥雞胸蘿蔔糕(蛋)",
+      "price": 120,
+      "group_code": "TURNIP_CAKE",
+      "source_ref": "點菜單!A92/D92",
+      "import_name": "舒肥雞胸蘿蔔糕(蛋)"
+    }
+  ],
+  "menu_items_for_current_api": [
+    {
+      "name": "有機蔗糖紅茶 (M)",
+      "price": 30,
+      "is_active": true
+    },
+    {
+      "name": "有機蔗糖紅茶 (L)",
+      "price": 35,
+      "is_active": true
+    },
+    {
+      "name": "三種成份奶茶 (M)",
+      "price": 50,
+      "is_active": true
+    },
+    {
+      "name": "三種成份奶茶 (L)",
+      "price": 60,
+      "is_active": true
+    },
+    {
+      "name": "豆漿(非基改黃豆) (M)",
+      "price": 30,
+      "is_active": true
+    },
+    {
+      "name": "豆漿紅茶(糖) (M)",
+      "price": 30,
+      "is_active": true
+    },
+    {
+      "name": "原味冬瓜飲 (L)",
+      "price": 35,
+      "is_active": true
+    },
+    {
+      "name": "冬瓜鳳梨果汁 (L)",
+      "price": 55,
+      "is_active": true
+    },
+    {
+      "name": "冬瓜百香果果汁 (L)",
+      "price": 55,
+      "is_active": true
+    },
+    {
+      "name": "冬瓜檸檬果汁 (L)",
+      "price": 55,
+      "is_active": true
+    },
+    {
+      "name": "有機美式咖啡 (M)",
+      "price": 60,
+      "is_active": true
+    },
+    {
+      "name": "有機美式咖啡 (L)",
+      "price": 75,
+      "is_active": true
+    },
+    {
+      "name": "有機拿鐵(100%奶粉) (M)",
+      "price": 70,
+      "is_active": true
+    },
+    {
+      "name": "有機拿鐵(100%奶粉) (L)",
+      "price": 85,
+      "is_active": true
+    },
+    {
+      "name": "生機洛神乾果粒(含仙楂無花果) (M)",
+      "price": 50,
+      "is_active": true
+    },
+    {
+      "name": "100%奶粉 (M)",
+      "price": 50,
+      "is_active": true
+    },
+    {
+      "name": "鳳梨 (L)",
+      "price": 55,
+      "is_active": true
+    },
+    {
+      "name": "百香果 (L)",
+      "price": 55,
+      "is_active": true
+    },
+    {
+      "name": "檸檬 (L)",
+      "price": 55,
+      "is_active": true
+    },
+    {
+      "name": "松子粒(素)",
+      "price": 125,
+      "is_active": true
+    },
+    {
+      "name": "菇菇(素)",
+      "price": 145,
+      "is_active": true
+    },
+    {
+      "name": "[PASTA_RICE] 100%黑豬肉",
+      "price": 145,
+      "is_active": true
+    },
+    {
+      "name": "100%菲瑞牛",
+      "price": 145,
+      "is_active": true
+    },
+    {
+      "name": "花蛤",
+      "price": 150,
+      "is_active": true
+    },
+    {
+      "name": "[PASTA_RICE] 100%炸雞條",
+      "price": 150,
+      "is_active": true
+    },
+    {
+      "name": "100%醬燒雞腿",
+      "price": 160,
+      "is_active": true
+    },
+    {
+      "name": "100%舒肥雞胸",
+      "price": 160,
+      "is_active": true
+    },
+    {
+      "name": "燴飯 黑豬醬",
+      "price": 90,
+      "is_active": true
+    },
+    {
+      "name": "燴飯 菇菇(蛋素)",
+      "price": 90,
+      "is_active": true
+    },
+    {
+      "name": "醬汁 杏鮑菇菇(素)",
+      "price": 90,
+      "is_active": true
+    },
+    {
+      "name": "醬汁 100%梅花豬",
+      "price": 90,
+      "is_active": true
+    },
+    {
+      "name": "醬汁 100%炸雞條",
+      "price": 95,
+      "is_active": true
+    },
+    {
+      "name": "醬汁 100%菲瑞牛飯",
+      "price": 105,
+      "is_active": true
+    },
+    {
+      "name": "醬汁 100%醬燒雞腿",
+      "price": 135,
+      "is_active": true
+    },
+    {
+      "name": "醬汁 100%舒肥雞胸",
+      "price": 150,
+      "is_active": true
+    },
+    {
+      "name": "丼飯 洋蔥醬燒豬",
+      "price": 115,
+      "is_active": true
+    },
+    {
+      "name": "丼飯 洋蔥醬燒牛肋條",
+      "price": 135,
+      "is_active": true
+    },
+    {
+      "name": "菲瑞牛(蛋)",
+      "price": 160,
+      "is_active": true
+    },
+    {
+      "name": "醬燒雞腿(蛋)",
+      "price": 165,
+      "is_active": true
+    },
+    {
+      "name": "舒肥雞胸(蛋)",
+      "price": 170,
+      "is_active": true
+    },
+    {
+      "name": "吉比花生醬(蛋奶素)",
+      "price": 45,
+      "is_active": true
+    },
+    {
+      "name": "綜合堅果醬(蛋奶素)",
+      "price": 50,
+      "is_active": true
+    },
+    {
+      "name": "原味(素)",
+      "price": 50,
+      "is_active": true
+    },
+    {
+      "name": "[WRAP] 玉米(素)",
+      "price": 60,
+      "is_active": true
+    },
+    {
+      "name": "[WRAP] 薯餅(素)",
+      "price": 70,
+      "is_active": true
+    },
+    {
+      "name": "[WRAP] 杏鮑菇(素)",
+      "price": 75,
+      "is_active": true
+    },
+    {
+      "name": "[WRAP] 梅花豬",
+      "price": 75,
+      "is_active": true
+    },
+    {
+      "name": "[WRAP] 菲瑞牛",
+      "price": 80,
+      "is_active": true
+    },
+    {
+      "name": "鮪魚玉米大板燒",
+      "price": 80,
+      "is_active": true
+    },
+    {
+      "name": "[TOAST_EGG] 玉米(素)",
+      "price": 55,
+      "is_active": true
+    },
+    {
+      "name": "[TOAST_EGG] 薯餅(素)",
+      "price": 65,
+      "is_active": true
+    },
+    {
+      "name": "鮪魚玉米",
+      "price": 70,
+      "is_active": true
+    },
+    {
+      "name": "[TOAST_EGG] 杏鮑菇(素)",
+      "price": 75,
+      "is_active": true
+    },
+    {
+      "name": "[TOAST_EGG] 梅花豬",
+      "price": 75,
+      "is_active": true
+    },
+    {
+      "name": "[TOAST_EGG] 菲瑞牛",
+      "price": 80,
+      "is_active": true
+    },
+    {
+      "name": "炸雞條",
+      "price": 85,
+      "is_active": true
+    },
+    {
+      "name": "舒肥雞胸",
+      "price": 110,
+      "is_active": true
+    },
+    {
+      "name": "荷包蛋",
+      "price": 15,
+      "is_active": true
+    },
+    {
+      "name": "薯餅一片(素)",
+      "price": 25,
+      "is_active": true
+    },
+    {
+      "name": "地瓜(素)",
+      "price": 45,
+      "is_active": true
+    },
+    {
+      "name": "有機高麗菜沙拉",
+      "price": 50,
+      "is_active": true
+    },
+    {
+      "name": "港式蘿蔔糕(葷)",
+      "price": 45,
+      "is_active": true
+    },
+    {
+      "name": "花蛤湯",
+      "price": 50,
+      "is_active": true
+    },
+    {
+      "name": "脆薯條",
+      "price": 50,
+      "is_active": true
+    },
+    {
+      "name": "[SNACK] 100%炸雞條",
+      "price": 60,
+      "is_active": true
+    },
+    {
+      "name": "100%黑胡椒",
+      "price": 90,
+      "is_active": true
+    },
+    {
+      "name": "杏鮑菇菇(素)",
+      "price": 100,
+      "is_active": true
+    },
+    {
+      "name": "[UDON] 100%黑豬肉",
+      "price": 100,
+      "is_active": true
+    },
+    {
+      "name": "黑豬肉黑胡椒",
+      "price": 110,
+      "is_active": true
+    },
+    {
+      "name": "杏鮑菇黑胡椒醬",
+      "price": 110,
+      "is_active": true
+    },
+    {
+      "name": "蘿蔔糕X2+煎蛋",
+      "price": 50,
+      "is_active": true
+    },
+    {
+      "name": "梅花豬蘿蔔糕(蛋)",
+      "price": 85,
+      "is_active": true
+    },
+    {
+      "name": "菲瑞牛蘿蔔糕(蛋)",
+      "price": 90,
+      "is_active": true
+    },
+    {
+      "name": "醬燒雞腿蘿蔔糕(蛋)",
+      "price": 115,
+      "is_active": true
+    },
+    {
+      "name": "舒肥雞胸蘿蔔糕(蛋)",
+      "price": 120,
+      "is_active": true
+    }
+  ],
+  "combo_rules": [
+    {
+      "code": "SET60",
+      "name": "60元套餐",
+      "bundle_price": 60,
+      "raw_rule_text": "35元以下飲品+A-G 選一種.",
+      "drink_rule": {
+        "max_price": 35,
+        "eligible_drinks": [
+          "有機蔗糖紅茶 (M)",
+          "有機蔗糖紅茶 (L)",
+          "豆漿(非基改黃豆) (M)",
+          "豆漿紅茶(糖) (M)",
+          "原味冬瓜飲 (L)"
+        ]
+      },
+      "side_rule": {
+        "choice_count": 1,
+        "options": [
+          {
+            "code": "A",
+            "name": "100%炸雞條"
+          },
+          {
+            "code": "B",
+            "name": "脆薯"
+          },
+          {
+            "code": "C",
+            "name": "有機蔬菜番茄沙拉"
+          },
+          {
+            "code": "D",
+            "name": "有機蔬菜青檸沙拉"
+          },
+          {
+            "code": "E",
+            "name": "地瓜"
+          },
+          {
+            "code": "F",
+            "name": "花蛤湯"
+          },
+          {
+            "code": "G",
+            "name": "薯餅*2片"
+          }
+        ]
+      }
+    },
+    {
+      "code": "SET95",
+      "name": "95元套餐",
+      "bundle_price": 95,
+      "raw_rule_text": "35元以下飲品+A-G 選二種.",
+      "drink_rule": {
+        "max_price": 35,
+        "eligible_drinks": [
+          "有機蔗糖紅茶 (M)",
+          "有機蔗糖紅茶 (L)",
+          "豆漿(非基改黃豆) (M)",
+          "豆漿紅茶(糖) (M)",
+          "原味冬瓜飲 (L)"
+        ]
+      },
+      "side_rule": {
+        "choice_count": 2,
+        "options": [
+          {
+            "code": "A",
+            "name": "100%炸雞條"
+          },
+          {
+            "code": "B",
+            "name": "脆薯"
+          },
+          {
+            "code": "C",
+            "name": "有機蔬菜番茄沙拉"
+          },
+          {
+            "code": "D",
+            "name": "有機蔬菜青檸沙拉"
+          },
+          {
+            "code": "E",
+            "name": "地瓜"
+          },
+          {
+            "code": "F",
+            "name": "花蛤湯"
+          },
+          {
+            "code": "G",
+            "name": "薯餅*2片"
+          }
+        ]
+      }
+    }
+  ],
+  "option_groups_observed": {
+    "PASTA_RICE_OPTIONS": [
+      "麵",
+      "飯",
+      "青醬(五辛)",
+      "蒜香黑胡椒",
+      "紅醬(五辛)",
+      "白醬(五辛)",
+      "白醬(奶素)"
+    ],
+    "SALAD_SAUCE_OPTIONS": [
+      "番茄沙拉醬",
+      "青檸醬",
+      "不醬"
+    ],
+    "WRAP_ADDONS": [
+      "起司",
+      "花生醬"
+    ],
+    "TOAST_EGG_ADDONS": [
+      "起司",
+      "花生醬"
+    ]
+  },
+  "validation": {
+    "total_menu_items": 75,
+    "duplicate_raw_names": [
+      "100%炸雞條",
+      "100%黑豬肉",
+      "杏鮑菇(素)",
+      "梅花豬",
+      "玉米(素)",
+      "菲瑞牛",
+      "薯餅(素)"
+    ]
+  },
+  "notes": [
+    "Duplicate raw names are auto-prefixed with [GROUP_CODE] for current API compatibility.",
+    "Option groups were captured but not priced in the sheet; keep as pending rule config."
+  ]
+}

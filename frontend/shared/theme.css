@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap");
+
+:root {
+  --sys-color-bg: #F8F9FA;
+  --sys-color-surface: #FFFFFF;
+  --sys-color-panel: #FFFFFF;
+  --sys-color-panel-soft: #FFFFFF;
+  --sys-color-line: #E2E8F0;
+  --sys-color-text: #1E293B;
+  --sys-color-text-soft: #64748B;
+  --sys-color-muted: #94A3B8;
+  --sys-color-accent: #10B981;
+  --sys-color-accent-strong: #059669;
+  --sys-color-info: #3B82F6;
+  --sys-color-warn: #F59E0B;
+  --sys-color-danger: #EF4444;
+  --sys-color-price: #F59E0B;
+
+  --sys-radius-s: 8px;
+  --sys-radius-m: 12px;
+  --sys-radius-l: 18px;
+  --sys-shadow-panel: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --sys-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.03);
+
+  --sys-motion-fast: 120ms;
+  --sys-motion-base: 180ms;
+  --sys-motion-slow: 260ms;
+  --sys-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+::selection {
+  background: rgba(16, 185, 129, 0.18);
+  color: var(--sys-color-text);
+}
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}

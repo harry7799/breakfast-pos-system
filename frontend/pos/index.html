@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="description" content="早餐店前台 POS：高速點餐、掛單、復單、即時出單。" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+  <title>收銀點餐 POS - 青青草原廚房</title>
+  <link rel="stylesheet" href="/shared/theme.css" />
+  <link rel="stylesheet" href="/shared/sidebar.css" />
+  <link rel="stylesheet" href="/pos/styles.css?v=20260224" />
+</head>
+<body>
+  <!-- 頂部工具列 -->
+  <header class="pos-topbar">
+    <div class="topbar-left">
+      <h1>收銀點餐 POS</h1>
+      <div class="topbar-meta">
+        <span class="meta-badge">
+          <span class="meta-icon">🕐</span>
+          <strong id="bizTime">--:--</strong>
+        </span>
+        <span class="meta-badge meta-badge-info">尖峰 07:00-09:30</span>
+      </div>
+    </div>
+
+    <div class="topbar-center">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input id="menuSearch" type="search" placeholder="搜尋品項名稱..." autocomplete="off" />
+        <kbd class="search-kbd">/</kbd>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <button id="newOrderBtn" class="topbar-btn" type="button" title="F1">
+        <span class="btn-icon">📝</span>
+        <span>新單</span>
+      </button>
+      <button id="holdOrderBtn" class="topbar-btn" type="button" title="F2">
+        <span class="btn-icon">📌</span>
+        <span>掛單</span>
+      </button>
+      <button id="peakModeToggle" class="topbar-btn topbar-btn-toggle" type="button">
+        <span class="btn-icon">⚡</span>
+        <span>尖峰模式：關</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 主要工作區 -->
+  <main class="pos-workspace">
+    <!-- 左側：菜單區 -->
+    <section class="menu-section">
+      <!-- 套餐快選 -->
+      <div class="panel combo-panel">
+        <div class="panel-header">
+          <h2>套餐快選</h2>
+          <span class="panel-subtitle">常用套餐可直接展開客製內容</span>
+        </div>
+        <div id="comboQuickSection" class="combo-grid"></div>
+      </div>
+
+      <!-- 菜單 -->
+      <div class="panel menu-panel">
+        <div class="panel-header">
+          <h2>菜單品項</h2>
+          <span class="panel-subtitle">點擊品項快速加入購物車</span>
+        </div>
+
+        <!-- 分類標籤 -->
+        <div class="category-tabs-wrap">
+          <div id="menuCategoryBar" class="category-tabs"></div>
+        </div>
+
+        <!-- 菜單網格 -->
+        <div class="menu-grid-container">
+          <div id="menuGrid" class="menu-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 右側：訂單區 -->
+    <aside class="order-section">
+      <div class="panel order-panel">
+        <div class="panel-header">
+          <h2>訂單工作台</h2>
+          <div class="order-tabs" role="tablist">
+            <button class="tab-btn active" data-tab="current" role="tab">
+              目前訂單 <span id="currentCount" class="tab-badge">0</span>
+            </button>
+            <button class="tab-btn" data-tab="held" role="tab">
+              掛單 <span id="heldCount" class="tab-badge">0</span>
+            </button>
+            <button class="tab-btn" data-tab="recent" role="tab">
+              最近 <span id="recentCount" class="tab-badge">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 目前訂單 -->
+        <div id="tabCurrent" class="tab-content active">
+          <div class="order-fields">
+            <label class="field-group">
+              <span class="field-label">訂單來源</span>
+              <select id="sourceSelect" class="field-select">
+                <option value="takeout">🥡 外帶</option>
+                <option value="dine_in">🍽️ 內用</option>
+                <option value="delivery">🛵 外送</option>
+              </select>
+            </label>
+            <label class="field-group">
+              <span class="field-label">付款方式</span>
+              <select id="paymentMethodSelect" class="field-select">
+                <option value="cash">💵 現金</option>
+                <option value="line_pay">💚 Line Pay</option>
+                <option value="credit_card">💳 信用卡</option>
+                <option value="easycard">🚇 悠遊卡</option>
+                <option value="other">📱 其他</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="cart-container">
+            <ul id="cartList" class="cart-list"></ul>
+          </div>
+
+          <div class="order-summary">
+            <div class="summary-row">
+              <span class="summary-label">總金額</span>
+              <strong class="summary-total">$<span id="total">0</span></strong>
+            </div>
+          </div>
+
+          <!-- 快速找零按鈕 -->
+          <div class="quick-change-buttons">
+            <button type="button" class="quick-change-btn" data-amount="100">收 $100</button>
+            <button type="button" class="quick-change-btn" data-amount="500">收 $500</button>
+            <button type="button" class="quick-change-btn" data-amount="1000">收 $1000</button>
+          </div>
+          <div id="changeDisplay" class="change-display"></div>
+
+          <div class="order-actions">
+            <button id="submitOrderBtn" class="action-btn action-btn-primary" type="button">
+              <span class="btn-icon">✓</span>
+              <span>出單並收款</span>
+            </button>
+            <button id="clearOrderBtn" class="action-btn action-btn-danger" type="button">
+              <span class="btn-icon">✕</span>
+              <span>清空</span>
+            </button>
+          </div>
+          <p id="message" class="order-message"></p>
+        </div>
+
+        <!-- 掛單列表 -->
+        <div id="tabHeld" class="tab-content">
+          <div id="heldOrders" class="held-list"></div>
+        </div>
+
+        <!-- 最近訂單 -->
+        <div id="tabRecent" class="tab-content">
+          <div id="orders" class="recent-list"></div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- 套餐客製 Modal -->
+  <div id="comboModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-combo-modal="1"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true">
+      <header class="modal-header">
+        <h3 id="comboModalTitle">套餐客製</h3>
+        <button id="comboModalClose" class="modal-close" type="button">✕</button>
+      </header>
+      <div id="comboModalBody" class="modal-body"></div>
+      <footer class="modal-footer">
+        <button id="comboModalCancel" class="modal-btn modal-btn-secondary" type="button">取消</button>
+        <button id="comboModalConfirm" class="modal-btn modal-btn-primary" type="button">確認加入</button>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/shared/sidebar.js?v=20260224"></script>
+  <script>
+    // 初始化側邊欄（必須在 DOM 載入前執行）
+    initSidebar('pos');
+  </script>
+  <script src="/shared/auth.js?v=20260224"></script>
+  <script src="/pos/app.js?v=20260224"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="早餐店智慧系統 KDS：廚房即時出單看板。" />
+  <link rel="canonical" href="https://081-system.zeabur.app/kds" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="早餐店智慧系統" />
+  <meta property="og:url" content="https://081-system.zeabur.app/kds" />
+  <meta property="og:title" content="廚房出單看板 KDS｜早餐店智慧系統" />
+  <meta property="og:description" content="廚房即時出單看板，訂單狀態即時同步。" />
+  <meta property="og:image" content="https://081-system.zeabur.app/assets/og-cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="廚房出單看板 KDS｜早餐店智慧系統" />
+  <meta name="twitter:description" content="廚房即時出單看板，訂單狀態即時同步。" />
+  <meta name="twitter:image" content="https://081-system.zeabur.app/assets/og-cover.png" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+  <title>廚房出單看板 KDS</title>
+  <link rel="stylesheet" href="/shared/theme.css" />
+  <link rel="stylesheet" href="/shared/sidebar.css" />
+  <link rel="stylesheet" href="/kds/styles.css?v=20260224" />
+</head>
+<body>
+  <div class="bg-orb bg-orb-a"></div>
+  <div class="bg-orb bg-orb-b"></div>
+
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Kitchen Dispatch Screen</p>
+      <h1>廚房出單看板 KDS</h1>
+      <p id="connectionStatus" class="connection ok">即時連線中</p>
+    </div>
+    <div class="topbar-actions">
+      <a href="/">回首頁</a>
+      <small>可用角色：廚房 / 店長 / 老闆</small>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="board">
+      <section class="lane lane-pending">
+        <header>
+          <h2>待處理</h2>
+          <span>新進訂單 <strong id="pendingCount">0</strong></span>
+        </header>
+        <div id="pendingCol" class="lane-body"></div>
+      </section>
+
+      <section class="lane lane-preparing">
+        <header>
+          <h2>製作中</h2>
+          <span>正在備餐 <strong id="preparingCount">0</strong></span>
+        </header>
+        <div id="preparingCol" class="lane-body"></div>
+      </section>
+
+      <section class="lane lane-ready">
+        <header>
+          <h2>待取餐</h2>
+          <span>等待交餐 <strong id="readyCount">0</strong></span>
+        </header>
+        <div id="readyCol" class="lane-body"></div>
+      </section>
+    </section>
+
+    <aside class="side-panel">
+      <section class="panel">
+        <h3>低庫存警示</h3>
+        <ul id="lowStockList"></ul>
+      </section>
+      <section class="panel">
+        <h3>即時事件</h3>
+        <ul id="alertList"></ul>
+      </section>
+    </aside>
+  </main>
+
+  <script src="/shared/sidebar.js?v=20260224"></script>
+  <script>
+    initSidebar('kds');
+  </script>
+  <script src="/shared/auth.js?v=20260224"></script>
+  <script src="/kds/app.js?v=20260224"></script>
+</body>
+</html>

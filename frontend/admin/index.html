@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="早餐店智慧系統後台：庫存、分析與稽核管理。" />
+  <link rel="canonical" href="https://081-system.zeabur.app/admin" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="早餐店智慧系統" />
+  <meta property="og:url" content="https://081-system.zeabur.app/admin" />
+  <meta property="og:title" content="後台管理｜早餐店智慧系統" />
+  <meta property="og:description" content="庫存、分析與稽核管理。" />
+  <meta property="og:image" content="https://081-system.zeabur.app/assets/og-cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="後台管理｜早餐店智慧系統" />
+  <meta name="twitter:description" content="庫存、分析與稽核管理。" />
+  <meta name="twitter:image" content="https://081-system.zeabur.app/assets/og-cover.png" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+  <title>營運後台管理</title>
+  <link rel="stylesheet" href="/shared/theme.css" />
+  <link rel="stylesheet" href="/shared/sidebar.css" />
+  <link rel="stylesheet" href="/admin/styles.css?v=20260224" />
+</head>
+<body>
+  <div class="bg-orb bg-orb-a"></div>
+  <div class="bg-orb bg-orb-b"></div>
+
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Operation Control Console</p>
+      <h1>營運後台管理</h1>
+      <p class="lead">庫存、分析與稽核紀錄集中在同一個管理介面。</p>
+    </div>
+    <a href="/">回首頁</a>
+  </header>
+
+  <main class="layout">
+    <section class="panel panel-wide panel-inventory">
+      <div class="section-title">
+        <h2>庫存現況</h2>
+        <span>各原料存量與補貨門檻</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>原料</th>
+              <th>單位</th>
+              <th>目前庫存</th>
+              <th>補貨門檻</th>
+              <th>單位成本</th>
+            </tr>
+          </thead>
+          <tbody id="ingredientBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel panel-form">
+      <div class="section-title">
+        <h2>庫存異動</h2>
+        <span>進貨 / 調整 / 報廢</span>
+      </div>
+      <form id="movementForm" class="movement-form">
+        <label>原料 ID <input type="number" id="ingredientId" required /></label>
+        <label>
+          類型
+          <select id="movementType" required>
+            <option value="purchase">進貨入庫</option>
+            <option value="adjustment">人工調整</option>
+            <option value="waste">報廢耗損</option>
+          </select>
+        </label>
+        <label>數量 <input type="number" id="quantity" step="0.01" required /></label>
+        <label>單位成本 <input type="number" id="unitCost" step="0.01" /></label>
+        <label>參考單號 <input type="text" id="reference" /></label>
+        <button type="submit">送出異動</button>
+      </form>
+      <p id="movementMsg" class="message" aria-live="polite"></p>
+    </section>
+
+    <section class="panel panel-shift">
+      <div class="section-title">
+        <h2>交班對帳</h2>
+        <span>開班 / 關班 / 差額</span>
+      </div>
+      <div id="shiftCurrent" class="shift-current"></div>
+      <form id="shiftOpenForm" class="movement-form">
+        <label>班別名稱 <input type="text" id="shiftName" value="早班" required /></label>
+        <label>開班現金 <input type="number" id="openingCash" step="0.01" min="0" value="0" required /></label>
+        <label>備註 <input type="text" id="shiftOpenNote" /></label>
+        <button type="submit">開啟班別</button>
+      </form>
+      <form id="shiftCloseForm" class="movement-form">
+        <label>盤點現金 <input type="number" id="actualCash" step="0.01" min="0" required /></label>
+        <label>備註 <input type="text" id="shiftCloseNote" /></label>
+        <button type="submit">關閉班別並對帳</button>
+      </form>
+      <p id="shiftMsg" class="message" aria-live="polite"></p>
+      <h3>最近交班</h3>
+      <ul id="shiftHistory" class="shift-history"></ul>
+    </section>
+
+    <section class="panel panel-analytics">
+      <div class="section-title">
+        <h2>近 7 日營運摘要</h2>
+        <span>收入、客單與庫存價值</span>
+      </div>
+      <div class="cards">
+        <article><small>總營收</small><strong id="totalRevenue">$0</strong></article>
+        <article><small>訂單數</small><strong id="totalOrders">0</strong></article>
+        <article><small>平均客單</small><strong id="avgTicket">$0</strong></article>
+        <article><small>庫存價值</small><strong id="inventoryValue">$0</strong></article>
+      </div>
+      <h3>熱銷品項</h3>
+      <ul id="topItems"></ul>
+      <h3>低庫存警示</h3>
+      <ul id="lowStock"></ul>
+    </section>
+
+    <section class="panel panel-wide panel-audit">
+      <div class="section-title">
+        <h2>操作稽核紀錄</h2>
+        <span>最近系統行為與關鍵變更</span>
+      </div>
+      <ul id="auditList" class="audit-list"></ul>
+    </section>
+  </main>
+
+  <script src="/shared/sidebar.js?v=20260224"></script>
+  <script>
+    initSidebar('admin');
+  </script>
+  <script src="/shared/auth.js?v=20260224"></script>
+  <script src="/admin/app.js?v=20260224"></script>
+</body>
+</html>
