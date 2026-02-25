@@ -681,7 +681,6 @@ body {
 .quick-change-btn {
   height: 48px;
   padding: 0 var(--spacing-md);
-  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
   border: none;
   border-radius: var(--radius-md);
   color: white;
@@ -689,13 +688,39 @@ body {
   font-weight: 700;
   cursor: pointer;
   transition: all 180ms ease;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
 }
 
-.quick-change-btn:hover {
-  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+.quick-change-btn[data-amount="100"] {
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.quick-change-btn[data-amount="100"]:hover {
+  background: linear-gradient(135deg, #F87171 0%, #EF4444 100%);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.quick-change-btn[data-amount="500"] {
+  background: linear-gradient(135deg, #92400E 0%, #78350F 100%);
+  box-shadow: 0 2px 8px rgba(146, 64, 14, 0.3);
+}
+
+.quick-change-btn[data-amount="500"]:hover {
+  background: linear-gradient(135deg, #B45309 0%, #92400E 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(146, 64, 14, 0.4);
+}
+
+.quick-change-btn[data-amount="1000"] {
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.quick-change-btn[data-amount="1000"]:hover {
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 
 .quick-change-btn:active {
