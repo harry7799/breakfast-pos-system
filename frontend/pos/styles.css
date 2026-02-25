@@ -336,11 +336,11 @@ body {
 }
 
 .category-tab {
-  padding: 10px 20px;
+  padding: 12px 24px;
   background: var(--color-bg);
   border: 2px solid transparent;
   border-radius: var(--radius-md);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--color-text-soft);
   cursor: pointer;
@@ -370,18 +370,18 @@ body {
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: var(--spacing-sm);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-md);
 }
 
 .menu-item {
-  padding: var(--spacing-md);
+  padding: var(--spacing-lg);
   background: var(--color-surface);
   border: 2px solid var(--color-border);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 180ms ease;
-  min-height: 120px;
+  min-height: 140px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -398,7 +398,7 @@ body {
 }
 
 .menu-item-name {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--color-text);
   margin-bottom: 8px;
@@ -406,7 +406,7 @@ body {
 }
 
 .menu-item-price {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
   color: var(--color-primary);
 }

@@ -40,17 +40,17 @@ const PAYMENT_LABEL = {
 
 const CATEGORY_LABEL = {
   ALL: "全部",
-  TOAST: "吐司",
-  BURGER: "漢堡",
   DANBING: "蛋餅",
-  RICE: "飯類",
-  NOODLE: "麵類",
-  FRIED: "炸物",
+  NOODLE: "麵",
+  STIR_FRY_NOODLE: "鍋炒麵",
+  RICE: "飯",
+  TURNIP_CAKE: "蘿蔔糕",
+  SNACK: "小點",
   DRINK: "飲料",
   OTHER: "其他",
 };
 
-const CATEGORY_ORDER = ["TOAST", "BURGER", "DANBING", "RICE", "NOODLE", "FRIED", "DRINK", "OTHER"];
+const CATEGORY_ORDER = ["DANBING", "NOODLE", "STIR_FRY_NOODLE", "RICE", "TURNIP_CAKE", "SNACK", "DRINK", "OTHER"];
 
 const els = {
   menuGrid: document.getElementById("menuGrid"),
@@ -173,13 +173,13 @@ function comboById(id) {
 function detectCategory(name) {
   const text = String(name || "");
   if (!text) return "OTHER";
-  if (/(紅茶|奶茶|豆漿|咖啡|鮮奶|果汁|茶|飲|冰|熱|中杯|大杯|杯)/.test(text)) return "DRINK";
-  if (/(吐司|厚片|三明治)/.test(text)) return "TOAST";
-  if (/(漢堡|堡)/.test(text)) return "BURGER";
+  if (/(紅茶|奶茶|豆漿|咖啡|鮮奶|果汁|茶|飲|冰|熱|中杯|大杯|杯|冬瓜|拿鐵)/.test(text)) return "DRINK";
   if (/(蛋餅|抓餅|蔥抓餅)/.test(text)) return "DANBING";
-  if (/(飯|燴飯|便當|丼)/.test(text)) return "RICE";
-  if (/(麵|意麵|烏龍|冬粉|米粉)/.test(text)) return "NOODLE";
-  if (/(薯|雞塊|炸|熱狗|蘿蔔糕|點心)/.test(text)) return "FRIED";
+  if (/(鍋炒|炒麵|炒烏龍|炒意麵)/.test(text)) return "STIR_FRY_NOODLE";
+  if (/(麵|意麵|烏龍|冬粉|米粉|湯麵|乾麵|板條)/.test(text)) return "NOODLE";
+  if (/(飯|燴飯|便當|丼|炒飯)/.test(text)) return "RICE";
+  if (/(蘿蔔糕)/.test(text)) return "TURNIP_CAKE";
+  if (/(薯|雞塊|炸|熱狗|點心|小點|沙拉|捲|吐司|三明治|漢堡)/.test(text)) return "SNACK";
   return "OTHER";
 }
 
